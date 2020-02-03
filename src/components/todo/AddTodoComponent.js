@@ -45,6 +45,8 @@ class AddTodoComponent extends React.Component {
                 </Grid>
                 <Grid item
                       xs={4}
+                      container
+                      justify='center'
                 >
                     <Button variant="contained"
                             color="primary"

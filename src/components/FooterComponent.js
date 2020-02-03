@@ -1,39 +1,43 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+   
+    
+    
+    appBar: {
+        top: 'auto',
+        bottom: 0,
+    },
+}));
+
 
 function FooterComponent() {
+    const classes = useStyles ();
     return (
         <AppBar position='fixed'
-                style={{
-                    top: 'auto',
-                    bottom: 0,
-                    height: '50px'
-                }}
+                color="primary"
+                className={classes.appBar}
+                            
         >
-            <Toolbar >
-
-                <div style={{
-                    width: '450px',
-                    margin: '30px auto',
-                    }}
+            <div style={{
+                width: '450px',
+                position: 'relative',
+                left: 0,
+                right: 0,
+                margin: 'auto',
+                }}
+            >
+                <Typography variant="subtitle2"
+                            align='center'
                 >
-                    <Typography variant="h5">
-                            @2020 Tatiana Komar All Rights Reserved
-                    </Typography>
-                </div>
-
-
-               
-
-
-            </Toolbar>
-            
-        
+                     ©TatsianaKomar, 2020
+                </Typography>
+            </div>
         </AppBar>
-
-    );
+);
 }
 
 

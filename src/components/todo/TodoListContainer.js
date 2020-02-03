@@ -14,7 +14,17 @@ function TodoListContainer(props) {
                 !!todoList.length
                 && (
                     todoList.map(todo => (
-                        <div key={todo.id}>{todo.title}</div>
+                        <div key={todo.id}
+                            style={{
+                                display: 'flex',
+                                border: '10'
+
+                            }}
+                            
+                            
+                            
+                        
+                        >{todo.title}</div>
                     ))
                 )
 
