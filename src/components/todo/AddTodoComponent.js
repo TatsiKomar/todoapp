@@ -17,14 +17,13 @@ class AddTodoComponent extends React.Component {
         this.setState({
             inputValue: event.target.value
         });
-
     }
 
-    onSaveTitle(){
+    onSaveTitle() {
         this.props.addNewTodo(this.state.inputValue);
         this.setState({
             inputValue: ''
-        })
+        });
     }
 
     render() {
@@ -33,6 +32,7 @@ class AddTodoComponent extends React.Component {
                   classes={{
                       root: 'addTodoContainer'
                   }}
+                  alignItems="center"
             >
                 <Grid item
                       xs={8}
@@ -46,7 +46,7 @@ class AddTodoComponent extends React.Component {
                 <Grid item
                       xs={4}
                       container
-                      justify='center'
+                      justify='flex-end'
                 >
                     <Button variant="contained"
                             color="primary"
@@ -55,7 +55,6 @@ class AddTodoComponent extends React.Component {
                         Save
                     </Button>
                 </Grid>
-
             </Grid>
         );
     }
