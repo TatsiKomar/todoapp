@@ -17,16 +17,15 @@ function HeaderComponent() {
                             margin: '30px auto'
                          }}
                     >
-                    <Typography variant="h2">
-                        Todo Application
-                    </Typography>
-                    <Typography variant="subtitle2"
+                        <Typography variant="h2">
+                            Todo Application
+                        </Typography>
+                        <Typography variant="subtitle2"
                                 align="right"
-                    >
-                        by Tatsiana
-                    </Typography>
+                        >
+                            by Tatsiana
+                        </Typography>
                     </div>
-
                 </Grid>
                 <Grid item
                       xs={6}
@@ -42,7 +41,6 @@ function HeaderComponent() {
                             }}*/
                             className={'large'}
                     />
-
                 </Grid>
             </Grid>
         </AppBar>

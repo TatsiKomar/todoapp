@@ -5,10 +5,6 @@ import TodoListContainer from './todo/TodoListContainer';
 import AddTodoComponent from "./todo/AddTodoComponent";
 import TodoModal from "./todo/TodoModal";
 
-
-const generateIdByTitle = () =>
-    '_'+ Math.random().toString(36).substring(12, 9);
-
 class MainComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +12,7 @@ class MainComponent extends React.Component {
             todoList: [],
             isOpenModal: null
         };
+
         this.addNewTodo = this.addNewTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
         this.deleteTodoById = this.deleteTodoById.bind(this);
@@ -42,7 +39,6 @@ class MainComponent extends React.Component {
         })
             .then((response) => response.json())
             .then(todos => {
-                console.log(todos);
                 this.setState({
                     todoList:todos
                 });
@@ -58,6 +54,7 @@ class MainComponent extends React.Component {
             title: newTodoTitle,
             status: 'TODO'
         };
+
         fetch('http://localhost:3000/todos', {
         	method: 'POST',
         	headers: {'Content-Type':'application/json'},
@@ -68,7 +65,7 @@ class MainComponent extends React.Component {
         			this.loadTodos();
         		}
         	})
-        }
+    }
 
     updateTodo(newData) {
         fetch(`http://localhost:3000/todos/${newData.id}`, {
@@ -95,36 +92,39 @@ class MainComponent extends React.Component {
     }
 
     render() {
-        console.log(this.state.todoList);
         return (
             <>
-            <Grid container
-                  justify="center"
-                  classes={{
+                <Grid container
+                    justify="center"
+                    classes={{
                         container: 'mainContainer'
-                  }}
-            >
-                <Grid item
-                      xs={6}
-                >
-                    <Card classes={{
-                            root: 'cardStyle'
                     }}
+                >
+                    <Grid item
+                        xs={6}
                     >
-                        <AddTodoComponent addNewTodo={this.addNewTodo}/>
-                        <TodoListContainer todoList={this.state.todoList}
+                        <Card classes={{
+                             root: 'cardStyle'
+                            }}
+                        >
+                            {/*для компонента добавления туду-шки*/}
+                            <AddTodoComponent addNewTodo={this.addNewTodo}/>
+                            {/*для компонента с перечнем туду-шек*/}
+                            <TodoListContainer todoList={this.state.todoList}
                                            updateTodo={this.updateTodo}
                                            deleteTodoById={this.deleteTodoById}
                                            onOpenModal={this.onOpenModal}
-                         />
-                    </Card>
+                            />
+                        </Card>
+                    </Grid>
                 </Grid>
-            </Grid>
-            {!!this.state.onOpenModal && (
-                <TodoModal onCloseModal={this.onCloseModal}
+                {/*тут должна быть модалька*/}
+                {!!this.state.onOpenModal && (
+                    <TodoModal onCloseModal={this.onCloseModal}
                            todoId={this.state.isOpenModal}
-                />
-            )}
+                           loadTodos={this.loadTodos}
+                    />
+                )}
             </>
         );
     }

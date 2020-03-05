@@ -13,10 +13,17 @@ code {
     monospace;
 }
 
-
 .large {
   width: 140px !important;
   height: 140px !important;
+}
+
+.footerStyle {
+  bottom: 0;
+  top: auto !important;
+  text-align: center;
+  padding: 20px;
+  height: 70px;
 }
 
 .cardStyle {
@@ -47,4 +54,10 @@ code {
 
 .todoInput, .todoTitle {
     width: 250px;
+}
+
+.modalTitle h2 {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 }

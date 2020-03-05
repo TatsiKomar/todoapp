@@ -31,7 +31,6 @@ function TodoListContainer(props) {
             }
         </div>
     );
-
 }
 
 export default TodoListContainer;
